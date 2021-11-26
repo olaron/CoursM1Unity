@@ -10,6 +10,7 @@ public class FPSMovement : MonoBehaviour
     public float jumpForce = 10;
     public float mouseSensitivity = 2;
     public Transform cam;
+    public GameObject laser;
     
     private Rigidbody rb;
     private bool canJump = true;
@@ -27,6 +28,10 @@ public class FPSMovement : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetButton("Fire1"))
+        {
+            Instantiate(laser, cam.position + Vector3.down * 0.2f + cam.forward * 0.5f, cam.rotation);
+        }
         var mouseMovement = new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);
         var angles = cam.eulerAngles;
         angles += mouseMovement * mouseSensitivity;

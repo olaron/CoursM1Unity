@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129551424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.329, y: 0.572, z: -11.714}
+  m_LocalPosition: {x: -16.575, y: 0.572, z: -11.714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 833951944}
   - component: {fileID: 833951943}
   - component: {fileID: 833951946}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,6 +691,7 @@ MonoBehaviour:
   jumpForce: 5
   mouseSensitivity: 2
   cam: {fileID: 1687258585}
+  laser: {fileID: 3931538670642470111, guid: d418b2431f061944aa27db123b4d60d5, type: 3}
 --- !u!1 &922065271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,7 +1194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438319924}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.036619704, y: 2.25395, z: -14.7147}
+  m_LocalPosition: {x: -1.0283809, y: 2.25395, z: -14.7147}
   m_LocalScale: {x: 27.94324, y: 3.5079, z: 0.57060003}
   m_Children: []
   m_Father: {fileID: 1664543093}
@@ -1288,8 +1289,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459700917}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.4675, y: 2.25395, z: 0}
-  m_LocalScale: {x: 1.065, y: 3.5079, z: 30}
+  m_LocalPosition: {x: -14.4675, y: 2.25395, z: 3.3201}
+  m_LocalScale: {x: 1.065, y: 3.5079, z: 23.361}
   m_Children: []
   m_Father: {fileID: 1664543093}
   m_RootOrder: 3
@@ -1803,7 +1804,7 @@ GameObject:
   - component: {fileID: 1687258584}
   - component: {fileID: 1687258582}
   - component: {fileID: 1687258586}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2287,6 +2288,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980655602}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2061753895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2906310788764046386, guid: 0e8a26a16f51c4a49b91e267a6d4821c, type: 3}
+  m_PrefabInstance: {fileID: 2906310789881731544}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2061753901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061753895}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0455151, y: 1.7691219, z: 1}
+  m_Center: {x: -0.02275753, y: 0.34002915, z: 0}
 --- !u!1 &2138677391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,6 +2463,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1664543093}
     m_Modifications:
+    - target: {fileID: 12843812, guid: 9495015251152b54f8b43596fb904023, type: 3}
+      propertyPath: spawnInterval
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1317896120787777460, guid: 9495015251152b54f8b43596fb904023, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295

@@ -19,13 +19,14 @@ public class AIMover : MonoBehaviour
     private Transform destination;
 
     private NavMeshPath path;
-    private bool pathFound = false;
+    //private bool pathFound = false;
 
     private Transform player;
+    private Collider boxCollider;
 
     private void Awake()
     {
-        destination = GameObject.FindGameObjectWithTag("Destination").transform;
+        //destination = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Start is called before the first frame update
@@ -38,33 +39,36 @@ public class AIMover : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         path = new NavMeshPath();
-        agent.destination = destination.position;
-        pathFound = agent.CalculatePath(destination.position, path);
-        if(!pathFound)
-        {
-            Debug.LogError("Path not found");
-        }
+        agent.destination = player.position;
+        // pathFound = agent.CalculatePath(destination.position, path);
+        // if(!pathFound)
+        // {
+        //     Debug.LogError("Path not found");
+        // }
+        boxCollider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        agent.destination = player.position;
         if (transform.position.y < -100)
         {
             Destroy(this.gameObject);
         }
+        
     }
 
     private void OnDrawGizmos()
     {
-        if (pathFound)
-        {
-            Gizmos.color = Color.red;
-            for (int i = 0; i <= path.corners.Length - 2; i++)
-            {
-                Gizmos.DrawLine(path.corners[i],path.corners[i+1]);    
-            }
-        }
+        // if (pathFound)
+        // {
+        //     Gizmos.color = Color.red;
+        //     for (int i = 0; i <= path.corners.Length - 2; i++)
+        //     {
+        //         Gizmos.DrawLine(path.corners[i],path.corners[i+1]);    
+        //     }
+        // }
     }
 
     void FixedUpdate()
@@ -81,7 +85,7 @@ public class AIMover : MonoBehaviour
             }
         }
         
-        Debug.Log(agent.velocity.magnitude);
+        //Debug.Log(agent.velocity.magnitude);
         anim.SetFloat(Speed, agent.velocity.magnitude);
     }
 }
