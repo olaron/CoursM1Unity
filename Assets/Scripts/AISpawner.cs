@@ -21,7 +21,7 @@ public class AISpawner : MonoBehaviour
         ai.position = spawnPoint.position;
         ai.rotation = spawnPoint.rotation;
         Rigidbody rb = ai.GetComponent<Rigidbody>();
-        Vector3 spawnForce = spawnPoint.right * 3;
+        Vector3 spawnForce = spawnPoint.forward * 3;
         Vector3 randomForce = new Vector3(Random.Range(-1f, 1f), Random.Range(0f, 1f), Random.Range(-1f, 1f));
         randomForce = randomForce.normalized;
         spawnForce += randomForce;
