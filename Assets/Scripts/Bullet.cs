@@ -23,8 +23,8 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-    public void OnCollisionEnter(Collision other)
+    
+    void OnCollisionEnter(Collision other)
     {
         Debug.Log("ok");
         AIMover ai = other.gameObject.GetComponent<AIMover>();
