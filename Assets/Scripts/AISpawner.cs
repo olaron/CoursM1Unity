@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class AISpawner : MonoBehaviour
 {
-
     public Transform prefabAI;
     [Range(0,10)]
     public float spawnInterval = 3;

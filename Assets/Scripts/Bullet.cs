@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
 
     public float speed = 100;
+    public GameObject explosion;
     
     // Start is called before the first frame update
     void Start()
@@ -26,13 +24,12 @@ public class Bullet : MonoBehaviour
     
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("ok");
         AIMover ai = other.gameObject.GetComponent<AIMover>();
         if (ai != null)
         {
-            Debug.Log("bjr");
+            Instantiate(explosion,other.transform.position, other.transform.rotation);
             Destroy(other.gameObject);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

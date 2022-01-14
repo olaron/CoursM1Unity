@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
 public class FPSMovement : MonoBehaviour
@@ -11,6 +7,9 @@ public class FPSMovement : MonoBehaviour
     public float mouseSensitivity = 2;
     public Transform cam;
     public GameObject laser;
+    [Range(0.1f,0.01f)]
+    public float fireDelay = 0.1f;
+    private float lastFireTime = 0f;
     
     private Rigidbody rb;
     private bool canJump = true;
@@ -28,8 +27,10 @@ public class FPSMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton("Fire1"))
+        lastFireTime += Time.deltaTime;
+        if (Input.GetButton("Fire1") && lastFireTime > fireDelay)
         {
+            lastFireTime = 0;
             Instantiate(laser, cam.position + Vector3.down * 0.2f + cam.forward * 0.5f, cam.rotation);
         }
         var mouseMovement = new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);

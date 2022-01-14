@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
+  explosion: {fileID: 4950643178232885980, guid: 9079522dd67b75e4bbb88c9b473860d3, type: 3}
 --- !u!96 &3425802802918981698
 TrailRenderer:
   serializedVersion: 2
@@ -160,7 +161,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 0
 --- !u!1 &8936888069900441897
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +255,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 10.02
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 4, z: 0}
