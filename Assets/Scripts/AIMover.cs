@@ -73,18 +73,6 @@ public class AIMover : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (rb != null)
-        {
-            if (Input.GetButton("Fire1") && rb.velocity.magnitude < maxSpeed)
-            {
-                rb.AddForce(transform.forward * 30);    
-            }
-            if (Input.GetButton("Fire2") && rb.velocity.magnitude < maxAngularSpeed)
-            {
-                rb.AddTorque(transform.up * 10);    
-            }
-        }
-        
         //Debug.Log(agent.velocity.magnitude);
         anim.SetFloat(Speed, agent.velocity.magnitude);
     }
