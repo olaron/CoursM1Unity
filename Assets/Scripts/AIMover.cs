@@ -81,4 +81,15 @@ public class AIMover : MonoBehaviour
     {
         destroyedNumber += 1;
     }
+    
+    //Upon collision with another GameObject, this GameObject will reverse direction
+    private void OnTriggerEnter(Collider other)
+    {
+        var player = other.gameObject.GetComponent<FPSMovement>();
+        if (player != null)
+        {
+            player.Die();
+            SpawnerManager.dead = true;
+        }
+    }
 }

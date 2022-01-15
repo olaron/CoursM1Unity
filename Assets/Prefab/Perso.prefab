@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 1189318125}
   - component: {fileID: 1189318124}
   - component: {fileID: 2061753896}
+  - component: {fileID: 3822844156809520729}
   m_Layer: 0
   m_Name: Perso
   m_TagString: Untagged
@@ -442,6 +443,20 @@ NavMeshAgent:
   m_BaseOffset: 0.46
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &3822844156809520729
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2906310788764046386}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.8
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1 &2906310789126624409
 GameObject:
   m_ObjectHideFlags: 0

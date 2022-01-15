@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public class Round
@@ -22,6 +23,8 @@ public class SpawnerManager : MonoBehaviour
     private float roundDuration;
     private float time;
     private int enemiesKilledBeforeNextRound;
+
+    public static bool dead = false;
     
     void NextRound()
     {
@@ -52,22 +55,34 @@ public class SpawnerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dead = false;
         NextRound();
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-
-        if (time > 1 && text.text.Length > 0)
+        if (dead)
         {
-            text.text = "";
+            text.text = "You died\nPress ENTER to retry";
+            if (Input.GetButtonDown("Submit"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
-        
-        if (time >= roundDuration || AIMover.destroyedNumber >= enemiesKilledBeforeNextRound)
+        else
         {
-            NextRound();
+            time += Time.deltaTime;
+
+            if (time > 1 && text.text.Length > 0)
+            {
+                text.text = "";
+            }
+        
+            if (time >= roundDuration || AIMover.destroyedNumber >= enemiesKilledBeforeNextRound)
+            {
+                NextRound();
+            }
         }
     }
 }
