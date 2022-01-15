@@ -15,10 +15,13 @@ public class FPSMovement : MonoBehaviour
     private bool canJump = true;
     
     private bool dead = false;
+
+    private AudioSource laserSound;
     
     // Start is called before the first frame update
     void Start()
     {
+        laserSound = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
     }
     
@@ -34,6 +37,7 @@ public class FPSMovement : MonoBehaviour
             lastFireTime += Time.deltaTime;
             if (Input.GetButton("Fire1") && lastFireTime > fireDelay)
             {
+                laserSound.Play();
                 lastFireTime = 0;
                 Instantiate(laser, cam.position + Vector3.down * 0.2f + cam.forward * 0.5f, cam.rotation);
             }
