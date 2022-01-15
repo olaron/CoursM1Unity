@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class AIMover : MonoBehaviour
 {
+    public static int destroyedNumber = 0;
+    
     private Rigidbody rb;
     private Animator anim;
     private NavMeshAgent agent;
@@ -72,5 +75,10 @@ public class AIMover : MonoBehaviour
     {
         //Debug.Log(agent.velocity.magnitude);
         anim.SetFloat(Speed, agent.velocity.magnitude);
+    }
+
+    private void OnDestroy()
+    {
+        destroyedNumber += 1;
     }
 }

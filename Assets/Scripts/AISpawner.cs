@@ -11,19 +11,33 @@ public class AISpawner : MonoBehaviour
     public Transform spawnPoint;
     private Vector3 lastSpawnForce;
 
+    private int numberToSpawn = 0;
+    private int spawned = 0;
+
+    public void PlayRound(int numberToSpawn,float spawnInterval)
+    {
+        spawned = 0;
+        this.numberToSpawn = numberToSpawn;
+        this.spawnInterval = spawnInterval;
+    }
+    
     private void Spawn()
     {
-        Transform ai = Instantiate(prefabAI);
-        ai.position = spawnPoint.position;
-        ai.rotation = spawnPoint.rotation;
-        Rigidbody rb = ai.GetComponent<Rigidbody>();
-        Vector3 spawnForce = spawnPoint.forward * 3;
-        Vector3 randomForce = new Vector3(Random.Range(-1f, 1f), Random.Range(0f, 1f), Random.Range(-1f, 1f));
-        randomForce = randomForce.normalized;
-        spawnForce += randomForce;
-        spawnForce *= 3;
-        rb.AddForce(spawnForce, ForceMode.Impulse);
-        lastSpawnForce = spawnForce;
+        if (spawned < numberToSpawn)
+        {
+            spawned += 1;
+            Transform ai = Instantiate(prefabAI);
+            ai.position = spawnPoint.position;
+            ai.rotation = spawnPoint.rotation;
+            Rigidbody rb = ai.GetComponent<Rigidbody>();
+            Vector3 spawnForce = spawnPoint.forward * 3;
+            Vector3 randomForce = new Vector3(Random.Range(-1f, 1f), Random.Range(0f, 1f), Random.Range(-1f, 1f));
+            randomForce = randomForce.normalized;
+            spawnForce += randomForce;
+            spawnForce *= 3;
+            rb.AddForce(spawnForce, ForceMode.Impulse);
+            lastSpawnForce = spawnForce;
+        }
     }
     
     // Start is called before the first frame update
